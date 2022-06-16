@@ -1,4 +1,9 @@
 <h2>Create a quote</h2>
 quote : <input #quote type="text">
 author: <input #author type="text">
-<button></button>
+<button (click)="create(quote.value, author.value)">Submit</button>
+<h1>Quotes</h1>
+<ul>
+  <li *ngFor="let quote of quotes | async"> "{{quote.quote}}", {{quote.author}}
+    <button (click)="delete(quote._id)"> DELETE</button></li>
+</ul>
